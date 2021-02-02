@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<bean id="emp" class="employee.assignment.Employee"
+		scope="prototype" >
+		<property name="empid" value="111"></property>
+		<property name="ename" value="aaa"></property>
+		<property name="basicSalary" value="100"></property>
+		<property name="medical" value="200"></property>
+	</bean>
+</beans>
