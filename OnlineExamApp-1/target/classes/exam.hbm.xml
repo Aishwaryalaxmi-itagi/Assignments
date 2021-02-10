@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 5.3//EN"  
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+
+	<class name="com.thinkitive.model.Exam" table="exam_table">
+		<id name="examID" column="examID" type="int">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="examName" column="examName" type="string"></property>
+
+
+		<list name="questions" cascade="all">
+			<key column="examID"></key>
+			<list-index column="myindex"></list-index>
+			<one-to-many class="com.thinkitive.model.Question"></one-to-many>
+
+		</list>
+
+
+	</class>
+
+	<class name="com.thinkitive.model.Question" table="questions">
+		<id name="queNo" column="queNo" type="int">
+			<generator class="assigned"></generator>
+		</id>
+
+
+		<property name="que" column="que" type="string"></property>
+
+		<property name="option1" column="option1" type="string"></property>
+		<property name="option2" column="option2" type="string"></property>
+		<property name="option3" column="option3" type="string"></property>
+		<property name="option4" column="option4" type="string"></property>
+		<property name="answer" column="answer" type="string"></property>
+
+	</class>
+
+
+
+
+	<class name="com.thinkitive.model.Result" table="result">
+		<id name="ansqueNo" column="ansqueNo" type="int">
+			<generator class="assigned"></generator>
+		</id>
+		<!-- <property name="examId" column="examId" type="int"></property> -->
+		<property name="answer" column="answer" type="string"></property>
+	</class>
+
+
+</hibernate-mapping> 
